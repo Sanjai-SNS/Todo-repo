@@ -124,7 +124,11 @@ C:\Work\Projects\
 
 3. **Start the development server**:
    ```bash
-   npm start
+   npx vite
+   ```
+   -or
+   ```bash
+   npx vite --debug
    ```
 
    The frontend will be available at `http://localhost:3000`
@@ -150,6 +154,10 @@ C:\Work\Projects\
 - `GET /home/` - Welcome message
 - `GET /about/` - About information
 - `GET /contact/` - Contact information
+
+##Demo Video
+
+
 
 ## Usage
 
