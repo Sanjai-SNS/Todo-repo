@@ -14,8 +14,10 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+from django.contrib import admin
 from django.urls import path, include
 
 urlpatterns = [
-    path('', include('todo.urls')),  # ✅ Should match the folder name
+    path('admin/', admin.site.urls),   # ✅ Add this line to enable the admin panel
+    path('', include('todo.urls')),    # Existing app routes
 ]
