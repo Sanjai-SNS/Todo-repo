@@ -71,17 +71,17 @@ project-root/
 - Node.js 14+
 - npm or yarn
 
-### Backend Setup
+### Project Setup
 
-1. **Navigate to backend directory**:
+1. **Navigate to project directory**:
    ```bash
-   cd backend
+   cd Todo-repo
    ```
 
 2. **Activate virtual environment**:
    ```bash
    # Windows
-   ..\\.venv\\Scripts\\activate
+   .venv/Scripts/activate
    
    # macOS/Linux
    source ../.venv/bin/activate
@@ -89,26 +89,35 @@ project-root/
 
 3. **Install dependencies** (if not already installed):
    ```bash
-   pip install django djangorestframework django-cors-headers djangorestframework-simplejwt
+   pip install -r requirements.txt
    ```
 
-4. **Run migrations**:
+### Backend Setup
+   
+4. **Navigate to backend directory**:
+   ```bash
+   cd backend
+   ```
+   
+5. **Run migrations**:
    ```bash
    python manage.py makemigrations
    python manage.py migrate
    ```
 
-5. **Create superuser** (optional, for admin access):
+6. **Create superuser** (optional, for admin access):
    ```bash
    python manage.py createsuperuser
    ```
 
-6. **Start the development server**:
+7. **Start the development server**:
    ```bash
    python manage.py runserver
    ```
 
    The backend will be available at `http://localhost:8000`.
+   
+   if it's not working try this path `http://127.0.0.1:8000/todos/`.
 
 ### Frontend Setup
 
@@ -127,11 +136,12 @@ project-root/
    npx vite
    ```
    or
+   
    ```bash
    npx vite --debug
    ```
 
-   The frontend will be available at `http://localhost:3000`.
+   The frontend will be available at `http://localhost:5173`.
 
 ## API Endpoints
 
@@ -154,6 +164,8 @@ project-root/
 - `GET /home/` - Welcome message
 - `GET /about/` - About information
 - `GET /contact/` - Contact information
+
+## Demo Video
 
 ## Usage
 
