@@ -1,3 +1,4 @@
+// Updated App.js with Done button, Navbar, and improved styles
 import React, { useEffect, useState, useRef } from "react";
 import axios from "axios";
 import "./App.css";
@@ -81,99 +82,62 @@ function App() {
   }, []);
 
   return (
-    <div style={styles.container}>
-      <h1 style={styles.heading}>📝 ToDo List</h1>
-      <div>
-        <input
-          type="text"
-          value={newTask}
-          placeholder="Enter a task"
-          onChange={(e) => setNewTask(e.target.value)}
-          style={styles.input}
-        />
-        <button onClick={addTask} style={styles.button}>Add</button>
+    <div className="app">
+      <nav className="navbar">
+        <h2>📘 My ToDo List</h2>
+      </nav>
+
+      <div className="todo-container">
+        <h1>📝 ToDo List</h1>
+        <div className="input-group">
+          <input
+            type="text"
+            value={newTask}
+            placeholder="Enter a task"
+            onChange={(e) => setNewTask(e.target.value)}
+          />
+          <button onClick={addTask}>Add</button>
+        </div>
+
+        <ul className="task-list">
+          {tasks.map((task) => (
+            <li key={task._id} className="task-item">
+              {editingId === task._id ? (
+                <>
+                  <input
+                    ref={editInputRef}
+                    type="text"
+                    value={editedText}
+                    onChange={(e) => setEditedText(e.target.value)}
+                  />
+                  <button onClick={() => saveEdit(task)}>💾</button>
+                </>
+              ) : (
+                <>
+                  <span
+                    onClick={() => toggleComplete(task)}
+                    style={{
+                      textDecoration: task.completed ? "line-through" : "none",
+                      color: task.completed ? "#bbb" : "white",
+                      cursor: "pointer",
+                    }}
+                  >
+                    {task.completed ? "✅ " : "⬜ "} {task.task}
+                  </span>
+                  <button onClick={() => startEditing(task)}>✏️</button>
+                  <button onClick={() => deleteTask(task)}>❌</button>
+                </>
+              )}
+            </li>
+          ))}
+        </ul>
       </div>
 
-      <ul style={styles.taskList}>
-        {tasks.map((task) => (
-          <li key={task._id} style={{ ...styles.taskItem, textDecoration: task.completed ? "line-through" : "none" }}>
-            {editingId === task._id ? (
-              <>
-                <input
-                  ref={editInputRef}
-                  type="text"
-                  value={editedText}
-                  onChange={(e) => setEditedText(e.target.value)}
-                  style={styles.input}
-                />
-                <button onClick={() => saveEdit(task)} style={styles.button}>💾 Save</button>
-              </>
-            ) : (
-              <>
-                <span onClick={() => toggleComplete(task)} style={styles.taskText}>
-                  {task.task}
-                </span>
-                <button onClick={() => startEditing(task)} style={styles.iconBtn}>✏️</button>
-                <button onClick={() => deleteTask(task)} style={styles.iconBtn}>❌</button>
-              </>
-            )}
-          </li>
-        ))}
-      </ul>
+      <div className="background-symbols">
+        <span>✨</span><span>🌀</span><span>💡</span><span>⭐</span><span>✅</span>
+      </div>
     </div>
   );
 }
-
-const styles = {
-  container: {
-    maxWidth: 600,
-    margin: "auto",
-    textAlign: "center",
-    paddingTop: "30px",
-  },
-  heading: {
-    color: "white",
-  },
-  input: {
-    padding: "8px",
-    marginRight: "10px",
-    borderRadius: "4px",
-    border: "1px solid #ccc",
-  },
-  button: {
-    padding: "8px 12px",
-    backgroundColor: "#28a745",
-    color: "#fff",
-    border: "none",
-    borderRadius: "4px",
-    cursor: "pointer",
-  },
-  taskList: {
-    listStyle: "none",
-    padding: 0,
-    marginTop: "20px",
-  },
-  taskItem: {
-    margin: "10px 0",
-    color: "white",
-    display: "flex",
-    alignItems: "center",
-    justifyContent: "center",
-  },
-  taskText: {
-    cursor: "pointer",
-    marginRight: "10px",
-    flex: 1,
-    textAlign: "left",
-  },
-  iconBtn: {
-    marginLeft: "8px",
-    padding: "4px 6px",
-    cursor: "pointer",
-    background: "none",
-    border: "none",
-    fontSize: "16px",
-  },
-};
 
 export default App;
