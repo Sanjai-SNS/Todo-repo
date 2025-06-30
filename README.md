@@ -143,9 +143,25 @@ project-root/
 
    The frontend will be available at `http://localhost:5173`.
 
+## Demo Video
+
+
+
+https://github.com/user-attachments/assets/62e7aba6-464b-4efd-98fb-581016b2781f
+
+
+
+Demo Video Link (It only available only you cloned thid repo) : `https://github.com/Sanjai-SNS/Todo-repo/blob/main/To-Do-Demo.mp4`
+
+If it can't accessable you can use this video by clicking this : `https://drive.google.com/file/d/1Lvb2pFOgmojNgTBxun4smtjodhENpRmc/view?usp=drive_link`
+
 ## API Endpoints
 
-### Todo Endpoints
+### Todo End
+
+https://github.com/user-attachments/assets/9e6dd936-d5b6-4df0-ae30-00fee698aa9b
+
+points
 - `GET /api/todos/` - List all todos
 - `POST /api/todos/` - Create a new todo
 - `GET /api/todos/{id}/` - Get a specific todo
@@ -164,14 +180,6 @@ project-root/
 - `GET /home/` - Welcome message
 - `GET /about/` - About information
 - `GET /contact/` - Contact information
-
-## Demo Video
-
-Uploading To-Do_gif.mp4…
-
-Demo Video Link (It only available only you cloned thid repo) : `https://github.com/Sanjai-SNS/Todo-repo/blob/main/To-Do-Demo.mp4`
-
-If it can't accessable you can use this video by clicking this : `https://drive.google.com/file/d/1Lvb2pFOgmojNgTBxun4smtjodhENpRmc/view?usp=drive_link`
 
 ## Usage
 
